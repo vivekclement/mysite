@@ -1,0 +1,51 @@
+npm install -g @11ty/eleventy
+yarn global add @11ty/eleventy
+echo '# Page header' > README.md
+
+Inorder to tell eleventy that the jpg are the images to be copied
+eleventy --serve --formats=md.jpg
+
+Liquid syntax in your mark down then u can use # {{title}}
+
+This above can be done using a config file
+.eleventy.js in your main folder
+
+module.exports = {
+
+}
+
+documentation --> configuration --> default template engine for markdown files
+
+module.exports = {
+    markdownTemplateEngine: "njk"
+};
+
+To create a json template. The folder name and the filename .json needs to be the same to
+use the default template
+
+e.g. blogs.11tydata.json
+
+The data cascade happens independent Rendering.
+
+-----
+
+Now in eleventy the page is ordered by collections instead of directory structures
+
+P.S Layouts can have chain of other layouts
+
+Documentation
+Working with Templates --> Collections -->
+
+Add an item to a collection, we can use tags.
+
+Permalink -> 
+
+yarn add axios
+
+const axios = require("axios");
+module.exports = async () => {
+  const result = await axios.get("https://dog.ceo/api/breeds/image/random");
+  const image = result.data.message;
+  return { layout: "layout.liquid", tags: "blogs", dog: image };
+};
+
